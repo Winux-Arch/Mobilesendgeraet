@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "repl_python3_bot"
-version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+name = "Mobiltelefon"
+version = "1.0.0"
+description = "Offizielles Projekt für eine Simulation eines Mobiltelefons"
+authors = ["Einar", "Jony", "Maxi"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
