@@ -70,7 +70,7 @@ while running:
             pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+76, 469 - 5 * i+random.randint(-3,5)), 21)
             pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+179, 466 - 5 * i+random.randint(-3,5)),24)
             pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+235, 474 - 5 * i+random.randint(-3,5)),16)
-            
+            pygame.draw.rect(surface, phone_colour, pygame.Rect(80, 0, 100, 20), 0, 0, 0,0,5, 5)
             pygame.display.update()
             pygame.time.delay(250)
 
