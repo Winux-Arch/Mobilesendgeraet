@@ -26,11 +26,15 @@ meinHandy = obj.Handy()
 print()
 while running:
 
+    # Überprüft, ob App geschlossen wird
+    
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
             running = False
 
+    # Zeigt Optionen und frägt nach einer Eingabe davon
+    
     print("""
 [1] Betriebstaste
 [2] Bildschirmschoner
@@ -39,6 +43,8 @@ while running:
     inp = input("Geben Sie Ihre gewünschte Funktion ein:\n>>> ").lower()
     if inp in ("1", "betriebstaste"):
 
+        # Schaltet Telefon ein bzw. aus
+        
         if istAn:
             maxi = meinHandy.ausschalten()
         else:
@@ -53,6 +59,8 @@ while running:
         hbs = obj.Bildschirmschoner()
         pygame.draw.rect(surface, hbs.aktivieren(),
                          pygame.Rect(5, 0, 250, 490), 0, 10, 10, 10, 10)
+
+        # Öffnet den Bildschirmschoner mit ruhigeren Farben und animierten Blasen, die sich nach oben bewegen
         for i in range(100):
 
             """
@@ -75,6 +83,9 @@ while running:
 
     elif inp in ("3", "telefonbuch") and istAn:
         buch = obj.Telefonbuch()
+        
+        # Sucht bzw. fügt je nach Eingabe Einträge hinzu
+        
         print("""
 [1] Hinzufügen
 [2] Suchen
@@ -100,6 +111,9 @@ while running:
             print(f"""
 NAME: {lost[0]}
 TELEFONNUMMER: {lost[1]}""")
+
+    # Error Catcher falls Option 1 nicht gewählt
+    
     elif int(inp) > 3 or int(inp) < 1 or not inp in ("1","2","3","betriebstaste","bildschirmschoner","telefonbuch"):
         print("\nOption existiert nicht")
     else:
