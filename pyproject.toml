@@ -6,7 +6,6 @@ authors = ["Einar", "Jony", "Maxi"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.0.1"
 pygame = "^2.1.2"
 
 [tool.poetry.dev-dependencies]

@@ -10,15 +10,15 @@ pygame.init()
 surface = pygame.display.set_mode((260, 520))
 pygame.display.set_caption('Mobiles Endgerät')
 
-surface.fill(background_colour)
+surface.fill(phone_colour)
 
 pygame.display.flip()
 
 running = True
 
-pygame.draw.rect(surface, phone_colour, pygame.Rect(5, 0, 250, 490), 0, 10, 10,
-                 10, 10)
-pygame.draw.circle(surface, phone_colour, (130, 505), 14)
+pygame.draw.rect(surface, phone_colour, pygame.Rect(5, 0, 250, 490), 0, 10, 10,10, 10)
+pygame.draw.rect(surface, phone_colour, pygame.Rect(80, 0, 100, 20), 0, 0, 0,0,5, 5)
+pygame.draw.circle(surface, background_colour, (130, 505), 14)
 pygame.display.flip()
 
 istAn = False
@@ -44,6 +44,7 @@ while running:
     if inp in ("1", "betriebstaste"):
 
         # Schaltet Telefon ein bzw. aus
+        # zeichnet das display als schwarzes bzw graues rechteck
         
         if istAn:
             maxi = meinHandy.ausschalten()
@@ -53,31 +54,23 @@ while running:
         display_farbe = maxi[1]
         istAn = maxi[0]
 
-        pygame.draw.rect(surface, display_farbe, pygame.Rect(5, 0, 250, 490),
-                         0, 10, 10, 10, 10)
+        pygame.draw.rect(surface, display_farbe, pygame.Rect(5, 0, 250, 490),0, 10, 10, 10, 10)
+        pygame.draw.rect(surface, phone_colour, pygame.Rect(80, 0, 100, 20), 0, 0, 0,0,5, 5)
     elif inp in ("2", "bildschirmschoner") and istAn:
         hbs = obj.Bildschirmschoner()
-        pygame.draw.rect(surface, hbs.aktivieren(),
-                         pygame.Rect(5, 0, 250, 490), 0, 10, 10, 10, 10)
-
         # Öffnet den Bildschirmschoner mit ruhigeren Farben und animierten Blasen, die sich nach oben bewegen
         for i in range(100):
-
-            """
-            # Skript zur zufälligen Rechts- bzw. Linksbewegung der Blasen
-            multiplikator = random.randint(-1, 1)
-            xAchsec = random.randint(5, 15)
-            """
-            # Rechnung: "aktueller Punkt" + multiplikator * xAchsec
+            # Rechnung: startpunkt - multiplikator * xAchsec
+            # die zufalligen ganzzahlen dienen dazu die blasen realistischer erscheinen zulassen  
             
-            surface.fill(background_colour)
-            pygame.draw.rect(surface, hbs.aktivieren(),
-                             pygame.Rect(5, 0, 250, 490), 0, 10, 10, 10, 10)
-            pygame.draw.circle(surface, phone_colour, (130, 505), 14)
-            pygame.draw.circle(surface, hbs.blasen, (25, 475 - 5 * i), 15)
-            pygame.draw.circle(surface, hbs.blasen, (76, 469 - 5 * i), 21)
-            pygame.draw.circle(surface, hbs.blasen, (179, 466 - 5 * i),24)
-            pygame.draw.circle(surface, hbs.blasen, (235, 474 - 5 * i),16)
+            surface.fill(phone_colour)
+            pygame.draw.rect(surface, hbs.aktivieren(),pygame.Rect(5, 0, 250, 490), 0, 10, 10, 10, 10)
+            pygame.draw.circle(surface, background_colour, (130, 505), 14)
+            pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+25, 475 - 5 * i+random.randint(-3,5)), 15)
+            pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+76, 469 - 5 * i+random.randint(-3,5)), 21)
+            pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+179, 466 - 5 * i+random.randint(-3,5)),24)
+            pygame.draw.circle(surface, hbs.blasen, (random.randint(-5,5)+235, 474 - 5 * i+random.randint(-3,5)),16)
+            
             pygame.display.update()
             pygame.time.delay(250)
 
