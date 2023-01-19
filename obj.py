@@ -1,5 +1,7 @@
 import json
 import os
+import sys
+import time
 
 # Das Handy an sich mit:
 # - veränderbarer Farbe als randfarbe:rgb
@@ -9,7 +11,8 @@ class Handy(object):
         self.randfarbe = randfarbe
         self.anfarbe = (200,200,199)
         self.ausfarbe = (0,0,0)
-
+        self.homefarbe = (200, 200, 199)
+        self.testfarbe= (255,45,33)
     
     # Gibt benötigte Werte die beim Einschalten verwendet werden.
     
@@ -64,9 +67,13 @@ class Telefonbuch(object):
         with open(self.tbpath, "r") as f:
             con = json.load(f)
         for i in con["nummern"]:
-            if i[0].lower() == name.lower() or i[1] == nummer:
-                return i
-        return "Nicht vorhanden", 000000
+            try:
+                if i[0].lower() == name.lower():
+                    return i
+            except:
+                if i[1] == nummer:
+                    return i
+        return "Nicht gefunden", "N/A"
 
     
     # Eingabe neuer Werte ins Telefonbuch
@@ -76,4 +83,17 @@ class Telefonbuch(object):
             con = json.load(f)
         con["nummern"].append((name, nummer))
         with open(self.tbpath, "w") as f:
-            json.dump(con, f)
+            json.dump(con, f, indent=1)
+
+class func:
+    # Schreibt Text langsam und jeden Buchstaben einzeln
+    def slowprint(text:str, typing_speed:int):
+        for l in text:
+            sys.stdout.write(l)
+            sys.stdout.flush()
+            time.sleep(500)
+        print()
+
+    # Leert die Konsole
+    def clearconsole():
+        os.system("clear")
