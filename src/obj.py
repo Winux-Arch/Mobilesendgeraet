@@ -25,17 +25,6 @@ class Handy(object):
     def ausschalten(self):
         return False, self.ausfarbe
 
-    
-    # Entsperrt das Handy falls Passwort vorhanden
-    
-    def entsperren(self, passwortInput):
-        passwort = os.environ["passwort"]
-        if passwortInput == passwort:
-            return True
-        return False
-
-
-
 # Gibt benötigte Funktionen und Attribute für den Bildschirmschoner im Handy
 
 class Bildschirmschoner(object):
