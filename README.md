@@ -7,3 +7,4 @@ Benötigte Ressourcen:
 
 Fur Windows 10 optimiert fur Linux siehe repl.it
 
+Zum starten zip entpacken und main.exe ausführen.
