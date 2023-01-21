@@ -7,12 +7,12 @@ import time
 # - veränderbarer Farbe als randfarbe:rgb
 
 class Handy(object):
-    def __init__(self, randfarbe=(26,23,24)):
-        self.randfarbe = randfarbe
+    def __init__(self):
+        self.randfarbe = (26,23,24)
         self.anfarbe = (200,200,199)
         self.ausfarbe = (0,0,0)
         self.homefarbe = (200, 200, 199)
-        self.testfarbe= (255,45,33)
+      
     
     # Gibt benötigte Werte die beim Einschalten verwendet werden.
     
@@ -28,12 +28,12 @@ class Handy(object):
 # Gibt benötigte Funktionen und Attribute für den Bildschirmschoner im Handy
 
 class Bildschirmschoner(object):
-    def __init__(self, hintergrund=(0,94,131), blasen=(0,137,182)):
+    def __init__(self):
         
         # Farben des Hintergrundes und der Blasen
     
-        self.hintergrund = hintergrund
-        self.blasen = blasen
+        self.hintergrund =(0,94,131)
+        self.blasen = (0,137,182)
     
     
     # Farbe des Hintergrundes wird zurückgegeben
