@@ -1,3 +1,4 @@
+#Importierungen
 import json
 import os
 import sys
@@ -14,13 +15,13 @@ class Handy(object):
         self.homefarbe = (200, 200, 199)
       
     
-    # Gibt benötigte Werte die beim Einschalten verwendet werden.
+    # Gibt benötigte Werte, die beim Einschalten verwendet werden.
     
     def einschalten(self):
         return True, self.anfarbe
 
     
-    # Gibt benötigte Werte die beim Ausschalten verwendet werden.
+    # Gibt benötigte Werte, die beim Ausschalten verwendet werden.
     
     def ausschalten(self):
         return False, self.ausfarbe

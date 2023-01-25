@@ -1,3 +1,4 @@
+#Importierungen und Initialisierungen
 import obj
 import pygame
 import random
@@ -6,7 +7,6 @@ running = True
 handy_x = obj.Handy()
 button_color = handy_x.homefarbe
 phone_color = handy_x.randfarbe
-test_colour = handy_x.testfarbe
 istAn = False
 meinHandy = obj.Handy()
 
@@ -47,7 +47,7 @@ while running:
     if inp in ("1", "einschalttaste"):
 
         # Schaltet Telefon ein bzw. aus
-        # zeichnet das display als schwarzes bzw graues rechteck
+        # Zeichnet das Display als schwarzes bzw. graues Rechteck
         
         if istAn:
             maxi = meinHandy.ausschalten()
