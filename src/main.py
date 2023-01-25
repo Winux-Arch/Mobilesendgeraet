@@ -11,7 +11,7 @@ istAn = False
 meinHandy = obj.Handy()
 
 pygame.init()
-
+#Handy wird gezeichnet
 surface = pygame.display.set_mode((260, 520))
 pygame.display.set_caption('Mobiles Endgerät')
 surface.fill(phone_color)
@@ -92,10 +92,12 @@ while running:
         inp = input("Geben Sie Ihre gewünschte Funktion ein:\n>>> ").lower()
         obj.func.clearconsole()
         if inp in ("1", "hinzufügen"):
+            #Hinzufügen neuer Eintrage 
             name = input("Name der Person:\n>>> ")
             nummer = input("Telefonnummer der Person:\n>>> ")
             buch.eingabe(name, nummer)
         elif inp in ("2", "suchen"):
+            #Durchsuchen des Telefonbuchs
             print("""
 [1] Nach Name suchen
 [2] Nach Nummer suchen
@@ -116,6 +118,7 @@ while running:
 NAME: {lost[0]}
 TELEFONNUMMER: {lost[1]}""")
         elif inp in ("3", "anrufen"):
+            #Anrufen einer Nummer
             inp = input("Wen möchten Sie anrufen? (Name)\n>>> ").lower()
             zuanrufend = buch.suche(name=inp)
             if zuanrufend[0] == "Nicht gefunden":
